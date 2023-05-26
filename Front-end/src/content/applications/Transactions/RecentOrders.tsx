@@ -5,8 +5,6 @@ import { useEffect, useState } from 'react';
 import { getRequest } from 'src/util/axiosInstance';
 import { Product } from 'src/models/product';
 
-
-
 function RecentOrders() {
   const [products, setProduct] = useState<Product[]>([]);
   useEffect(() => {
@@ -15,12 +13,12 @@ function RecentOrders() {
   const getProducts = async () => {
     try {
       const request = await getRequest({
-        url: `http://127.0.0.1:5000/products`
+        url: `http://localhost:5000/products`
       });
       const products = request.data;
       setProduct(products);
     } catch (error) {
-      console.log("No products was found here");
+      console.log('No products was found here');
     }
   };
 
